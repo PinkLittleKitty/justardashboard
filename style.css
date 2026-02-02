@@ -1,16 +1,16 @@
 :root {
-    --color-canvas-default: #ffffff;
-    --color-canvas-subtle: #f6f8fa;
-    --color-border-default: #d0d7de;
-    --color-border-muted: hsla(210, 18%, 87%, 1);
-    --color-fg-default: #1f2328;
-    --color-fg-muted: #656d76;
-    --color-accent-fg: #0969da;
-    --color-accent-emphasis: #0969da;
-    --color-btn-primary-bg: #1f883d;
+    --color-canvas-default: #0d1117;
+    --color-canvas-subtle: #161b22;
+    --color-border-default: #30363d;
+    --color-border-muted: #21262d;
+    --color-fg-default: #c9d1d9;
+    --color-fg-muted: #8b949e;
+    --color-accent-fg: #58a6ff;
+    --color-accent-emphasis: #1f6feb;
+    --color-btn-primary-bg: #238636;
     --color-btn-primary-text: #ffffff;
-    --color-btn-primary-hover-bg: #1a7f37;
-    --color-border-subtle: rgba(31, 35, 40, 0.15);
+    --color-btn-primary-hover-bg: #2ea043;
+    --color-border-subtle: rgba(240, 246, 252, 0.1);
 
     --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 }
@@ -26,10 +26,48 @@ body {
 
 .Header {
     display: flex;
-    padding: 16px 32px;
+    padding: 12px 24px;
     color: hsla(0, 0%, 100%, 0.7);
-    background-color: #24292f;
+    background-color: #161b22;
+    border-bottom: 1px solid var(--color-border-default);
     align-items: center;
+}
+
+body.obs-mode .Header,
+body.obs-mode .col-md-3 {
+    display: none !important;
+}
+
+body.obs-mode .col-md-9 {
+    width: 100% !important;
+    padding: 10px !important;
+}
+
+body.obs-mode .container-xl {
+    max-width: 100% !important;
+    margin: 0 !important;
+}
+
+body.obs-mode .Box-row {
+    padding: 12px 8px;
+}
+
+body.obs-mode .Link--primary {
+    font-size: 16px;
+}
+
+body.obs-mode #status-bar,
+body.obs-mode .Box-header {
+    display: none !important;
+}
+
+body.obs-mode .Box {
+    border: 0 !important;
+    background: transparent !important;
+}
+
+body.obs-mode .Box-row {
+    border-top: 1px solid var(--color-border-muted) !important;
 }
 
 .Header-item {

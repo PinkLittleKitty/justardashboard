@@ -2,7 +2,8 @@ const state = {
     token: localStorage.getItem('gh_token') || '',
     repo: localStorage.getItem('gh_repo') || '',
     issues: [],
-    filter: 'open'
+    filter: 'open',
+    obsMode: localStorage.getItem('obs_mode') === 'true'
 };
 
 const els = {
@@ -18,12 +19,17 @@ const els = {
     closedCount: document.getElementById('closed-count'),
     filterOpen: document.getElementById('filter-open'),
     filterClosed: document.getElementById('filter-closed'),
-    statusBar: document.getElementById('status-bar')
+    statusBar: document.getElementById('status-bar'),
+    obsToggle: document.getElementById('obs-toggle')
 };
 
 function init() {
     els.ghTokenInput.value = state.token;
     els.ghRepoInput.value = state.repo;
+
+    if (state.obsMode) {
+        document.body.classList.add('obs-mode');
+    }
 
     if (state.token && state.repo) {
         fetchIssues();
@@ -65,6 +71,13 @@ function setupEventListeners() {
     els.filterClosed.onclick = (e) => {
         e.preventDefault();
         setFilter('closed');
+    };
+
+    els.obsToggle.onclick = (e) => {
+        e.preventDefault();
+        state.obsMode = !state.obsMode;
+        document.body.classList.toggle('obs-mode', state.obsMode);
+        localStorage.setItem('obs_mode', state.obsMode);
     };
 }
 
