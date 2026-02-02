@@ -33,6 +33,24 @@ body {
     align-items: center;
 }
 
+.exit-obs-btn {
+    display: none;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 9999;
+    opacity: 0.5;
+    background-color: var(--color-canvas-subtle);
+}
+
+.exit-obs-btn:hover {
+    opacity: 1;
+}
+
+body.obs-mode .exit-obs-btn {
+    display: block;
+}
+
 body.obs-mode .Header,
 body.obs-mode .col-md-3 {
     display: none !important;

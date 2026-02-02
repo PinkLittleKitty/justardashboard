@@ -20,7 +20,8 @@ const els = {
     filterOpen: document.getElementById('filter-open'),
     filterClosed: document.getElementById('filter-closed'),
     statusBar: document.getElementById('status-bar'),
-    obsToggle: document.getElementById('obs-toggle')
+    obsToggle: document.getElementById('obs-toggle'),
+    exitObs: document.getElementById('exit-obs')
 };
 
 function init() {
@@ -75,10 +76,19 @@ function setupEventListeners() {
 
     els.obsToggle.onclick = (e) => {
         e.preventDefault();
-        state.obsMode = !state.obsMode;
-        document.body.classList.toggle('obs-mode', state.obsMode);
-        localStorage.setItem('obs_mode', state.obsMode);
+        toggleObsMode();
     };
+
+    els.exitObs.onclick = (e) => {
+        e.preventDefault();
+        toggleObsMode();
+    };
+}
+
+function toggleObsMode() {
+    state.obsMode = !state.obsMode;
+    document.body.classList.toggle('obs-mode', state.obsMode);
+    localStorage.setItem('obs_mode', state.obsMode);
 }
 
 function setFilter(filter) {
