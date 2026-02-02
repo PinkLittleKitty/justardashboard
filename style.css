@@ -33,8 +33,13 @@ body {
     align-items: center;
 }
 
+body.obs-mode .Header,
+body.obs-mode .col-md-3 {
+    display: none !important;
+}
+
 .exit-obs-btn {
-    display: none;
+    display: none !important;
     position: fixed;
     top: 10px;
     right: 10px;
@@ -48,12 +53,7 @@ body {
 }
 
 body.obs-mode .exit-obs-btn {
-    display: block;
-}
-
-body.obs-mode .Header,
-body.obs-mode .col-md-3 {
-    display: none !important;
+    display: block !important;
 }
 
 body.obs-mode .col-md-9 {
